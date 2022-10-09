@@ -57,9 +57,9 @@ const NftUploader = () => {
       console.log(error);
     }
   };
+
   const askContractToMintNft = async (ipfs) => {
-    const CONTRACT_ADDRESS =
-      "0xd0271395E45a42d1Ee200Ea3913421F9fC7b1a6b";
+    const CONTRACT_ADDRESS = "0xF03E4adCc7CaefFCA5Db94cF9bB07D6C107D507e";
     try {
       const { ethereum } = window;
       if (ethereum) {
@@ -86,7 +86,7 @@ const NftUploader = () => {
   };
 
   const imageToNFT = async (e) => {
-    const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDYwQTJmOEY4ZGZFQjAzNGRkMTdFYUNmNzNhNTVlNmRDZEI2Q2FBZjQiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjUyOTgyNjI3ODEsIm5hbWUiOiJXZWIzTWludCJ9.qjNVIlfl4kmiErdR-cTirI8rQE6oY8354ROc0Z2kYb0";
+    const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDYwQTJmOEY4ZGZFQjAzNGRkMTdFYUNmNzNhNTVlNmRDZEI2Q2FBZjQiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjUyOTgyNjI3ODEsIm5hbWUiOiJXZWIzTWludCJ9.qjNVIlfl4kmiErdR-cTirI8rQE6oY8354ROc0Z2kYb0"
     const client = new Web3Storage({ token: API_KEY })
     const image = e.target
     console.log(image)
@@ -101,7 +101,8 @@ const NftUploader = () => {
       console.log("file.cid:",file.cid)
       askContractToMintNft(file.cid)
     }
-}
+  };
+
   const renderNotConnectedContainer = () => (
       <button onClick={connectWallet} className="cta-button connect-wallet-button">
         Connect to Wallet
@@ -129,7 +130,7 @@ const NftUploader = () => {
           <img src={ImageLogo} alt="imagelogo" />
           <p>ここにドラッグ＆ドロップしてね</p>
         </div>
-        <input className="nftUploadInput" multiple name="imageURL" type="file" accept=".jpg , .jpeg , .png" onChange={imageToNFT}/>
+        <input className="nftUploadInput" multiple name="imageURL" type="file" accept=".jpg , .jpeg , .png" onChange={imageToNFT} />
       </div>
       <p>または</p>
       <Button variant="contained">
